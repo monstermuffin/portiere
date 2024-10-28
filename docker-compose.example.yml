@@ -1,0 +1,13 @@
+services: # See README for all configuration details
+  portiere:
+    container_name: portiere
+    image: ghcr.io/monstermuffin/portiere:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - TEST_MODE=true
+      - WEBHOOK_URL=https://example.com/api/webhook/some-webhook
+      - SESSION_TIMEOUT_MINS=1440
+      - SALT=4F18vkhIY5jf01H
+      - STORED_HASH=211eb93508db75f7fb33b0802f18d6f1765a7c98baf35b91e10fdb974d77f267
+    restart: unless-stopped

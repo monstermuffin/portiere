@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🔑🔑</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <div class="auth-overlay">
+            <div class="auth-container">
+                <div class="input-group">
+                    <input type="password"
+                           id="password"
+                           class="password-input"
+                           placeholder="Enter password"
+                           autocomplete="off">
+                    <button class="toggle-password" id="toggle-password">
+                        <i>👁️‍🗨️</i>
+                    </button>
+                </div>
+                <button id="submit-button" class="submit-button">Unlock</button>
+                <div id="password-feedback" class="password-feedback">Enter Password</div>
+            </div>
+        </div>
+
+        <div class="slider-container">
+            <div class="slide-text">Slide To Trigger</div>
+            <div class="slider"></div>
+        </div>
+        <div id="confirmationMessage"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/js/particles-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', window.particlesConfig);
+            window.dispatchEvent(new Event('resize'));
+            
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (window.pJSDom && window.pJSDom[0]) {
+                        window.pJSDom[0].pJS.fn.vendors.pause();
+                    }
+                } else {
+                    if (window.pJSDom && window.pJSDom[0]) {
+                        window.pJSDom[0].pJS.fn.vendors.resume();
+                    }
+                }
+            });
+
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    if (window.pJSDom && window.pJSDom[0]) {
+                        window.pJSDom[0].pJS.fn.vendors.resize();
+                    }
+                }, 200);
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
